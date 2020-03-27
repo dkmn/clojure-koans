@@ -3,7 +3,7 @@
 
 (meditations
   "You can use vectors in clojure as array-like structures"
-  (= __ (count [42]))
+  (= 1 (count [42]))
 
   "You can create a vector from a list"
   (= __ (vec '(1)))
