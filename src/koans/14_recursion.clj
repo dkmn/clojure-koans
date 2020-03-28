@@ -4,7 +4,7 @@
 (defn is-even? [n]
   (if (= n 0)
     __
-    (___ (is-even? (dec n)))))
+    (not (is-even? (dec n)))))
 
 (defn is-even-bigint? [n]
   (loop [n   n
@@ -21,7 +21,7 @@
 
 (meditations
   "Recursion ends with a base case"
-  (= true (is-even? 0))
+  (= true (is-even? 0))1
 
   "And starts by moving toward that base case"
   (= false (is-even? 1))
