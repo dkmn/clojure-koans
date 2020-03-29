@@ -3,21 +3,27 @@
 
 (meditations
   "The map function relates a sequence to another"
+  (= [4 8 12] (map (fn [x] (* 4 x)) [1 2 3]))
   (= [__ __ __] (map (fn [x] (* 4 x)) [1 2 3]))
 
   "You may create that mapping"
+  (= [1 4 9 16 25] (map (fn [x] (* x x)) [1 2 3 4 5]))
   (= [1 4 9 16 25] (map (fn [x] __) [1 2 3 4 5]))
 
   "Or use the names of existing functions"
+  (= [false false true false false] (map nil? [:a :b nil :c :d]))
   (= __ (map nil? [:a :b nil :c :d]))
 
   "A filter can be strong"
+  (= '() (filter (fn [x] false) '(:anything :goes :here)))
   (= __ (filter (fn [x] false) '(:anything :goes :here)))
 
   "Or very weak"
+  (= '(:anything :goes :here) (filter (fn [x] true) '(:anything :goes :here)))
   (= __ (filter (fn [x] true) '(:anything :goes :here)))
 
   "Or somewhere in between"
+  (= [10 20 30] (filter (fn [x] (<= x 30)) [10 20 30 40 50 60 70 80]))
   (= [10 20 30] (filter (fn [x] __) [10 20 30 40 50 60 70 80]))
 
   "Maps and filters may be combined"
