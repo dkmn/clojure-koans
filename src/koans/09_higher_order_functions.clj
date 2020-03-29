@@ -27,11 +27,10 @@
   (= [10 20 30] (filter (fn [x] __) [10 20 30 40 50 60 70 80]))
 
   "Maps and filters may be combined"
-  (= [10 20 30] (map (fn [x] __) (filter (fn [x] __) [1 2 3 4 5 6 7 8])))
+  (= [10 20 30] (map (fn [x] (* x 10)) (filter (fn [x] (<= x 3)) [1 2 3 4 5 6 7 8])))
 
   "Reducing can increase the result"
   (= __ (reduce (fn [a b] (* a b)) [1 2 3 4]))
-
   "You can start somewhere else"
   (= 2400 (reduce (fn [a b] (* a b)) __ [1 2 3 4]))
 
