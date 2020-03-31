@@ -52,11 +52,11 @@
      (sort (keys { 2014 "Sochi" 2018 "PyeongChang" 2010 "Vancouver"})))
 
   "You can get the values in a similar way"
-  (= (list "Sochi" "Vancouver" "PyeongChang")
+  (= (list "PyeongChang" "Sochi" "Vancouver")
      (sort (vals {2010 "Vancouver" 2014 "Sochi" 2018 "PyeongChang"})))
 
   "You can even iterate over the map entries as a seq"
-  (= {:a 1 :b __}
+  (= {:a 2 :b 3}
      (into {}
            (map
             (fn [[k v]] [k (inc v)])
