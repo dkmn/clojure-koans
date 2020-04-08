@@ -26,3 +26,7 @@
   "Iteration can be used for repetition"
   (= (repeat 100 "hello")
      (take 100 (iterate (fn [x] (clojure.string/join x)) "hello"))))
+; ALTERNATE SYNTAX for anonymous functions
+; "Iteration can be used for repetition"
+; (= (repeat 100 "hello")
+;    (take 100 (iterate #(clojure.string/join %1) "hello"))))
