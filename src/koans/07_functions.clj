@@ -23,18 +23,18 @@
   (= 15 (#(+ %1 %2 %3) 4 5 6))
 
   "Arguments can also be skipped"
-  (= "AA" "bb" (#(str "AA" %2) "bb" "CC"))
+  (= "AACC" (#(str "AA" %2) "bb" "CC"))
 
   "One function can beget another"
-  (= 9 (((fn [] 9)) 4 5))
+  (= 9 (#(+ %1 %2) 4 5))
 
   "Functions can also take other functions as input"
   (= 20 ((fn [f] (f 4 5))
            *))
 
   "Higher-order functions take function arguments"
-  (= 25 (___
+  (= 25 ((fn [f] (f 5))
           (fn [n] (* n n))))
 
   "But they are often better written using the names of functions"
-  (= 25 (___ square)))
+  (= 25 ( (fn [f] (f 5)) square)))
