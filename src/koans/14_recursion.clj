@@ -15,8 +15,8 @@
 
 (defn recursive-reverse [coll]
   (if (empty? coll)
-    (empty coll)
-    (conj (recursive-reverse (rest coll)) (first coll))))
+    []
+    (conj  (recursive-reverse (rest coll)) (first coll))))
 
 
 (defn factorial [n]
