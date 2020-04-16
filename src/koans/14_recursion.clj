@@ -23,9 +23,11 @@
 
 
 (defn factorial [n]
-  (if (= n 1)
-    1
-    (* n (factorial (- n 1)))))
+  (loop [current n
+         acc 1]
+    (if (= current 1)
+      acc
+      (recur (- current 1) (* current acc)))))
 
 
 (meditations
