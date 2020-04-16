@@ -3,25 +3,28 @@
 
 (defn is-even? [n]
   (if (= n 0)
-    __
+    true
     (not (is-even? (dec n)))))
 
 (defn is-even-bigint? [n]
   (loop [n   n
          acc true]
     (if (= n 0)
-      __
+      acc                                                   ; tricksy! Need to use the acc binding to track the # of flip/flops
       (recur (dec n) (not acc)))))
 
 (defn recursive-reverse [coll]
-  __)
+  (if (empty? coll)
+    (empty coll)
+    (conj (recursive-reverse (rest coll)) (first coll))))
+
 
 (defn factorial [n]
-  __)
+  (* n (factorial (- n 1))))
 
 (meditations
   "Recursion ends with a base case"
-  (= true (is-even? 0))1
+  (= true (is-even? 0))
 
   "And starts by moving toward that base case"
   (= false (is-even? 1))
