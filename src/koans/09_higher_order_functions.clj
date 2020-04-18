@@ -30,7 +30,7 @@
   (= 2400 (reduce (fn [a b] (* a b)) (cons 100 [1 2 3 4])))
   "Numbers are not the only things one can reduce"
   (= "longest" (reduce (fn [a b]
-                         (if (< __ __) b a))
+                         (if (<(count a)(count b)) b a))
                        ["which" "word" "is" "longest"])))
 ; somewhat convoluted. see one possible solution
 (= "longest" (reduce (fn [a b]

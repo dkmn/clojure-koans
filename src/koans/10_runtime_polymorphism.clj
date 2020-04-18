@@ -16,20 +16,21 @@
 
 (meditations
   "Some functions can be used in different ways - with no arguments"
-  (= __ (hello))
+  (= "Hello World!"(hello))
 
   "With one argument"
-  (= __ (hello "world"))
+  (= "Hello, you silly world." (hello "world"))
 
   "Or with many arguments"
-  (= __
-     (hello "Peter" "Paul" "Mary"))
+   (= "Hello to this group: Peter, Paul, Mary!"
+        (hello "Peter" "Paul" "Mary"))
+
 
   "Multimethods allow more complex dispatching"
   (= "Bambi eats veggies."
      (diet {:species "deer" :name "Bambi" :age 1 :eater :herbivore}))
-
   "Animals have different names"
+
   (= "Thumper eats veggies."
      (diet {:species "rabbit" :name "Thumper" :age 1 :eater :herbivore}))
 
