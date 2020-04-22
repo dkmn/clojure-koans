@@ -20,7 +20,7 @@
   (=  '(1 2 4 8 16 32 64 128) (take 8 (iterate (fn [x] (* x 2)) 1)))
 
   "Repetition is key"
-  (= [:a :a :a :a :a :a :a :a :a :a]
+  (= [:a :a :a :a :a :a :a :a :a :a ]
      (repeat 10 :a))
 
   "Iteration can be used for repetition"
