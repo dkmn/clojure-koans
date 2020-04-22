@@ -10,9 +10,9 @@
                    "!")))
 
 (defmulti diet (fn [x] (:eater x)))
-(defmethod diet :herbivore [a] __)
-(defmethod diet :carnivore [a] __)
-(defmethod diet :default [a] __)
+(defmethod diet :herbivore [zob] (str (:name zob) " eats " "veggies."))
+(defmethod diet :carnivore [a] (str (:name a) " eats " "animals."))
+(defmethod diet :default [a] (str "I don't know what " (:name a) " eats."  ))
 
 (meditations
   "Some functions can be used in different ways - with no arguments"
@@ -28,7 +28,8 @@
 
   "Multimethods allow more complex dispatching"
   (= "Bambi eats veggies."
-     (diet {:species "deer" :name "Bambi" :age 1 :eater :herbivore}))
+     (diet {:species "deer" :name "Bambi" :age 1 :eater :herbivore }))
+
   "Animals have different names"
 
   (= "Thumper eats veggies."
