@@ -3,7 +3,7 @@
 
 (meditations
   "Sequence comprehensions can bind each element in turn to a symbol"
-  (= __
+  (= (range 6)
      (for [x (range 6)]
        x))
 
