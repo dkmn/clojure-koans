@@ -25,6 +25,23 @@
             (recursive-infix ~first-arg)
             (recursive-infix ~others)))))
 
+
+(defmacro precedence-aware-infix [form]
+  (cond (not (seq? form))
+        ; handle atomic case
+        form
+        ; handle atomic case wrapped in list
+        (= 1 (count form))
+        `(precedence-aware-infix ~(first form))
+        :else
+        (let [operator (second form)
+              first-arg (first form)
+              others (rest (rest form))]
+          `(~operator
+             (precedence-aware-infix ~first-arg)
+             (precedence-aware-infix ~others)))))
+
+
 (meditations
   "Macros are like functions created at compile time"
   (= "Hello, Macros!" (hello "Macros!"))
@@ -43,4 +60,7 @@
 
 
   "Really, you don't understand recursion until you understand recursion"
-  (= 36 (recursive-infix (10 + (2 * 3) + (4 * 5)))))
+  (= 36 (recursive-infix (10 + (2 * 3) + (4 * 5))))
+
+  "Attempt to apply precedence rules, without parentheses (added by Dad)"
+  (= 36 (precedence-aware-infix (10 + 2 * 3 + 4 * 5))))
