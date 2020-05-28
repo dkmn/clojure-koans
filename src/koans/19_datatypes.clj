@@ -22,19 +22,19 @@
 
 (meditations
   "Holding records is meaningful only when the record is worthy of you"
-  (= __ (.prize (Nobel. "peace")))
+  (= "peace" (.prize (Nobel. "peace")))
 
   "Types are quite similar"
-  (= __ (.prize (Pulitzer. "literature")))
+  (= "literature" (.prize (Pulitzer. "literature")))
 
   "Records may be treated like maps"
-  (= __ (:prize (Nobel. "physics")))
+  (= "physics" (:prize (Nobel. "physics")))
 
   "While types may not"
-  (= __ (:prize (Pulitzer. "poetry")))
+  (= nil (:prize (Pulitzer. "poetry")))
 
   "Further study reveals why"
-  (= __
+  (= [true false]
      (map map? [(Nobel. "chemistry")
                 (Pulitzer. "music")]))
 
