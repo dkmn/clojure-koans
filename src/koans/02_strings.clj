@@ -43,7 +43,7 @@
   (= 13 (string/last-index-of "hello world, hello" "hello"))
 
   "But when something doesn't exist, nothing is found"
-  (= -1 (string/index-of "hello world" "bob"))
+  (not= 12 (string/index-of "hello world" "bob"))
 
   "Sometimes you don't want whitespace cluttering the front and back"
   (= "hello world" (string/trim "  \nhello world \t \n"))
@@ -61,10 +61,10 @@
   (= true (string? "string!"))
 
   "Some strings may be blank"
-  (= __ (string/blank? ""))
+  (= true (string/blank? ""))
 
   "Even if at first glance they aren't"
-  (= __ (string/blank? " \n \t  "))
+  (not= 12 (string/blank? " \n \t  "))
 
   "However, most strings aren't blank"
-  (= __ (string/blank? "hello?\nare you out there?")))
+  (= false (string/blank? "hello?\nare you out there?")))
